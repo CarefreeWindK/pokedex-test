@@ -1,20 +1,15 @@
 // src/pages/Pokedex.tsx
 import React, { useState } from 'react'
 import PokemonList from '../components/PokemonList'
+import PokemonDetail from '../components/PokemonDetail'
 
 export default function Pokedex() {
   const [selectedId, setSelectedId] = useState<number | null>(null)
 
-  return (
-    <div className="flex">
+   return (
+    <div className="flex h-screen">
       <PokemonList onSelect={setSelectedId} />
-      <div className="flex-1 p-4">
-        {selectedId ? (
-          <p className="text-xl">Pokémon seleccionado: #{selectedId}</p>
-        ) : (
-          <p className="text-gray-500">Selecciona un Pokémon</p>
-        )}
-      </div>
+      <PokemonDetail id={selectedId} onSelect={setSelectedId} />
     </div>
   )
 }
