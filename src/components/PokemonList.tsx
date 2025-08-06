@@ -1,6 +1,7 @@
 // src/components/PokemonList.tsx
 import React, { useRef, useCallback, useState } from 'react'
 import { usePokemonList } from '../hooks/usePokemon'
+import styles from "./LessonInfo.module.css";
 import PokemonListItem from './PokemonListItem'
 
 type Props = {
@@ -29,7 +30,7 @@ export default function PokemonList({ onSelect }: Props) {
   )
 
   return (
-    <div className="w-64 overflow-y-auto h-screen border-r border-gray-300 bg-white">
+    <div className="w-64 overflow-y-auto h-screen border-r border-gray-300 bg-white" class="">
       {pokemonList.map((pokemon, index) => {
         const id = pokemon.url.split('/').filter(Boolean).pop() as unknown as number
 

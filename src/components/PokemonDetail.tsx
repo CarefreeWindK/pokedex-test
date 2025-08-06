@@ -2,9 +2,10 @@ import { usePokemonDetail } from '../hooks/usePokemonDetail'
 import PokemonImage from './PokemonImage'
 import PokemonTypes from './PokemonTypes'
 import PokemonInfo from './PokemonInfo'
+import EvolutionChart from './EvolutionChart'
+import SearchBar from './SearchBar'
 
-
-export default function PokemonDetail({ id }: { id: number | null }) {
+export default function PokemonDetail({ id, onSelect }: { id: number | null , onSelect: (id: number) => void}) {
   const { pokemon, loading, error } = usePokemonDetail(id)
 
   if (!id) return <div className="p-4">Selecciona un Pokémon</div>
@@ -32,7 +33,7 @@ export default function PokemonDetail({ id }: { id: number | null }) {
   return (
     <div className="flex-1 p-4">
       <h2 className="text-3xl font-bold capitalize mb-2">{pokemon.name}</h2>
-
+      <SearchBar onSelect={onSelect} />
       <PokemonImage src={imageUrl} alt={pokemon.name} />
       <PokemonTypes types={types} />
       <PokemonInfo
@@ -41,7 +42,7 @@ export default function PokemonDetail({ id }: { id: number | null }) {
         weight={pokemon.weight}
         stats={stats}
       />
-
+      <EvolutionChart id={pokemon.id} />
     </div>
   )
 }
