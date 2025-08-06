@@ -1,7 +1,6 @@
-// src/components/PokemonList.tsx
 import React, { useRef, useCallback, useState } from 'react'
 import { usePokemonList } from '../hooks/usePokemon'
-import styles from "./LessonInfo.module.css";
+
 import PokemonListItem from './PokemonListItem'
 
 type Props = {
@@ -30,10 +29,9 @@ export default function PokemonList({ onSelect }: Props) {
   )
 
   return (
-    <div className="w-64 overflow-y-auto h-screen border-r border-gray-300 bg-white" class="">
+    <div>
       {pokemonList.map((pokemon, index) => {
         const id = pokemon.url.split('/').filter(Boolean).pop() as unknown as number
-
         if (index === pokemonList.length - 1) {
           return (
             <div ref={lastItemRef} key={pokemon.name}>
@@ -49,7 +47,6 @@ export default function PokemonList({ onSelect }: Props) {
             </div>
           )
         }
-
         return (
           <PokemonListItem
             key={pokemon.name}
@@ -64,8 +61,8 @@ export default function PokemonList({ onSelect }: Props) {
         )
       })}
 
-      {loading && <p className="p-2 text-center text-sm text-gray-400">Cargando más Pokémon…</p>}
-      {!hasMore && <p className="p-2 text-center text-sm text-gray-400">No hay más Pokémon</p>}
+      {loading && <p className="p-2 text-center text-sm text-gray-400">Loading more Pokémon…</p>}
+      {!hasMore && <p className="p-2 text-center text-sm text-gray-400">No more Pokémon</p>}
     </div>
   )
 }

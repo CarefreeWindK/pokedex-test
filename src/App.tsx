@@ -6,7 +6,6 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Pokedex />} />
-        {/* Acá podrás agregar más rutas si haces la búsqueda en otra vista */}
       </Routes>
     </Router>
   )

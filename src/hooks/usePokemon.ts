@@ -1,4 +1,3 @@
-// src/hooks/usePokemonList.ts
 import { useEffect, useState } from 'react'
 import { getPokemonList } from '../services/pokemonService'
 
@@ -20,7 +19,7 @@ export function usePokemonList() {
           setPokemonList((prev) => [...prev, ...newPokemons])
         }
       } catch (e) {
-        console.error('Error al cargar más Pokémon', e)
+        console.error('Error loading more Pokémon', e)
       } finally {
         setLoading(false)
       }

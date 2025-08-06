@@ -6,7 +6,7 @@ export default function PokemonTypes({ types }: { types: string[] }) {
       {types.map((type) => (
         <span
           key={type}
-          className="px-3 py-1 text-white rounded-full text-sm capitalize bg-indigo-500"
+          className="px-8 py-1 rounded-lg text-sm capitalize bg-light"
         >
           {type}
         </span>
